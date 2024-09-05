@@ -2,7 +2,6 @@ opencv-python
 mediapipe
 streamlit 
 numpy 
-pickle
 pandas 
 pyttsx3
 threading
