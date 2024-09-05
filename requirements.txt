@@ -3,7 +3,6 @@ mediapipe
 streamlit 
 numpy 
 pandas 
-pyttsx3
 threading
 warnings
 pillow
