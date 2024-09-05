@@ -1,6 +1,6 @@
 opencv-python-headless
 streamlit 
-numpy 
+numpy==1.21.6
 pandas 
 pillow
 efficientnet
