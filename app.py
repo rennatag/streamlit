@@ -7,7 +7,6 @@ import csv
 from PIL import ImageFont, ImageDraw, Image
 import pickle
 import pandas as pd
-import pyttsx3
 import threading
 import warnings
 warnings.filterwarnings("ignore")
