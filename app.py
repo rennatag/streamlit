@@ -62,13 +62,6 @@ if selected_tab == "Upload your Video":
         codec = cv2.VideoWriter_fourcc('V','P','0','9')
         out = cv2.VideoWriter('output1.webm', codec, fps, (width, height))
 
-
-        # alarm properties for alert
-        alarm_sound = pyttsx3.init()
-        voices = alarm_sound.getProperty('voices')
-        alarm_sound.setProperty('voice', voices[0].id)
-        alarm_sound.setProperty('rate', 150)
-
         while vid.isOpened():
 
             ret, frame = vid.read()
@@ -174,12 +167,6 @@ elif selected_tab == "Live Video Analysis":
     fps = int(vid.get(cv2.CAP_PROP_FPS))
     codec = cv2.VideoWriter_fourcc('V','P','0','9')
     out = cv2.VideoWriter('output1.webm', codec, fps, (width, height))
-
-    # alarm properties for alert
-    alarm_sound = pyttsx3.init()
-    voices = alarm_sound.getProperty('voices')
-    alarm_sound.setProperty('voice', voices[0].id)
-    alarm_sound.setProperty('rate', 150)
 
     while vid.isOpened():
 
