@@ -138,7 +138,8 @@ if uploaded_file is not None:
                     with cols[i % num_columns]:  # Cycle through columns
                         img = display_color_image(color_code)
                         if img:
-                            st.image(img, caption=f"Color", width=50)
+                            st.image(img, width=50)
+                            # st.image(img, caption=f"Color", width=50)
 
         
                 
