@@ -1,48 +1,38 @@
-import cv2
-import tempfile
 import streamlit as st
-import numpy as np
-import csv
-from PIL import ImageFont, ImageDraw, Image
-import pickle
-import pandas as pd
-import threading
-import warnings
-warnings.filterwarnings("ignore")
-
 import os
 os.environ['CV2_CUDNN_STREAM'] = '1'
+import cv2
+import pandas as pd
+import numpy as np
+import pickle
+import tempfile
+from PIL import ImageFont, ImageDraw, Image
 from efficientnet.tfkeras import EfficientNetB4
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array, load_img, array_to_img
 
+
 # opening the image
-#image = open('banner_image.jpeg', 'rb').read()
-#st.image(image, use_column_width=True)
+# image = open('banner_image.jpeg', 'rb').read()
+# st.image(image, use_column_width=True)
 
-# Load the trained model
-model = load_model('model.h5')
-
-    
-# Set Class Names
-class_labels = ['Cool', 'Neutral', 'Warm']
-
-# Set font
-font = ImageFont.truetype(font = "C:/Windows/Fonts/Arial.ttf", size = 30)
-
-st.title("Skin Tone Classifier")
-st.markdown("App for classifying skin tone.")
+st.title("Croissant")
+st.markdown("Predict skin tone")
 
 # Add a separator between the header and the main content
 st.markdown("---")
 
-st.header("Upload your Image")
+
 
 # Load the trained model
-#model = load_model('efficientnet2.h5')
+model = load_model('model.h5')
+
+
+
+st.header("Upload your image")
 
 # Get user input for image upload
-uploaded_file = st.file_uploader('Upload an image of your skin to predict the skin tone', type=['jpg', 'jpeg', 'png'])
+uploaded_file = st.file_uploader('Upload an image of your croissant', type=['jpg', 'jpeg', 'png'])
 
 # Process the uploaded image if it exists
 if uploaded_file is not None:
@@ -68,4 +58,6 @@ if uploaded_file is not None:
     # Get the predicted class name
     predicted_class_name = class_names[predicted_class_index]
 
-    st.write(f"Predicted Skin Tone: {predicted_class_name}")
+    st.write(f"Your croissant is : {predicted_class_name}")
+
+
