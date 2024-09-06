@@ -78,8 +78,12 @@ if uploaded_file is not None:
             with st.spinner('Making prediction...'):
                 predictions = predict_image(model, processed_image)
                 st.success('Prediction completed!')
-                st.write(f"Predicted class: {np.argmax(predictions)}")  # Example prediction format
-                st.write(f"Prediction confidence: {predictions}")
+
+                # Indicate class names
+                class_names = ['Cool', 'Neutral', 'Warm']
+                
+                st.write(f"Predicted skin tone: {class_names[np.argmax(predictions)]}")  # Example prediction format
+                #st.write(f"Prediction confidence: {predictions}")
         except Exception as e:
             st.error(f"Error making prediction: {e}")
     else:
