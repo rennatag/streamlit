@@ -130,7 +130,7 @@ if uploaded_file is not None:
                 #color_list = [code.strip() for code in color_codes.split("\n") if code.strip()]
 
                 # Create columns for the grid layout
-                num_columns = 10
+                num_columns = 9
                 cols = st.columns(num_columns)
                 
                 # Display images in the grid
@@ -138,7 +138,7 @@ if uploaded_file is not None:
                     with cols[i % num_columns]:  # Cycle through columns
                         img = display_color_image(color_code)
                         if img:
-                            st.image(img, caption=f"Color: {color_code}", width=50)
+                            st.image(img, caption=f"Color", width=50)
 
         
                 
