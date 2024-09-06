@@ -5,4 +5,4 @@ pandas
 pillow
 efficientnet
 tensorflow
-protoc>=3.19.0
+protobuf==3.19.0
