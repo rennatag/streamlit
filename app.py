@@ -123,8 +123,23 @@ if uploaded_file is not None:
                 else: 
                     display_colors_list = warm_list                    
 
-                for display_color in display_colors_list:
-                    st.image(display_color_image(display_color), caption=f"Color: {display_color}", width=50)
+                #for display_color in display_colors_list:
+                #    st.image(display_color_image(display_color), caption=f"Color: {display_color}", width=50)
+
+
+                #color_list = [code.strip() for code in color_codes.split("\n") if code.strip()]
+
+                # Create columns for the grid layout
+                cols = st.columns(3)
+                
+                # Display images in the grid
+                for i, color_code in enumerate(display_colors_list):
+                    with cols[i % num_columns]:  # Cycle through columns
+                        img = display_color_image(color_code)
+                        if img:
+                            st.image(img, caption=f"Color: {color_code}", use_column_width=True)
+
+        
                 
         
         except Exception as e:
