@@ -2,7 +2,7 @@ import streamlit as st
 import gdown
 from tensorflow.keras.models import load_model
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageColor
 import os
 import tensorflow as tf
 
@@ -24,6 +24,22 @@ def preprocess_image(image, target_size):
 def predict_image(model, image):
     preds = model.predict(image)
     return preds
+
+
+# Displays a solid color image based on the provided color code.
+def display_color_image(color_code, image_size=(200, 200)):
+    try:
+        # Convert color code to RGB tuple
+        rgb_color = ImageColor.getrgb(color_code)
+
+        # Create a new image with the specified size and color
+        img = Image.new("RGB", image_size, rgb_color)
+
+        # Display the image
+        st.image(img, caption=f"Color: {color_code}", use_column_width=True)
+
+    except ValueError:
+        print(f"Invalid color code: {color_code}")
 
 # Google Drive file link (shared link)
 file_url = 'https://drive.google.com/uc?id=16oeHRDRpTGocvN39fz36O67OGURcYS04'
@@ -81,9 +97,14 @@ if uploaded_file is not None:
 
                 # Indicate class names
                 class_names = ['Cool', 'Neutral', 'Warm']
-                
+
+                # Display prediction
                 st.write(f"Predicted skin tone: {class_names[np.argmax(predictions)]}")  # Example prediction format
-                #st.write(f"Prediction confidence: {predictions}")
+
+                # Example usage
+                color_code = "#00FF00"  # Green
+                display_color_image(color_code)
+        
         except Exception as e:
             st.error(f"Error making prediction: {e}")
     else:
