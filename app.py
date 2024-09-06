@@ -26,9 +26,9 @@ import h5py
 
 try:
     with h5py.File('model.h5', 'r') as f:
-        print("Valid HDF5 file")
+        st.write("Valid HDF5 file")
 except OSError:
-    print("Invalid HDF5 file")
+    st.write("Invalid HDF5 file")
 
 
 # Load the trained model
