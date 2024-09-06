@@ -66,7 +66,7 @@ if uploaded_file is not None:
     st.image(image, caption='Uploaded Image.', use_column_width=True)
     
     # Preprocess the image for prediction
-    processed_image = preprocess_image(image, target_size=(224, 224))  # Adjust target size to your model input
+    processed_image = preprocess_image(image, target_size=(384, 384))  # Adjust target size to your model input
 
     # Ensure the model is loaded
     if os.path.exists(output_file):
