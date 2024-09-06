@@ -49,7 +49,7 @@ if os.path.exists(output_file):
             with st.spinner('Loading model...'):
                 model = load_model(output_file)
                 st.success('Model loaded successfully!')
-                st.write(model.summary())
+                #st.write(model.summary())
         except OSError as e:
             st.error(f"Error loading model: {e}")
     else:
