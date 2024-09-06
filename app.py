@@ -124,8 +124,8 @@ if uploaded_file is not None:
                     display_colors_list = warm_list                    
 
                 for display_color in display_colors_list:
-                    st.write(display_color)
-                    st.image(display_color_image(display_color), caption=f"Color: {color_code}", width=50)
+                    #st.write(display_color)
+                    st.image(display_color_image(display_color), caption=f"Color: {display_color}", width=50)
                 
         
         except Exception as e:
