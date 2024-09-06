@@ -8,6 +8,7 @@ import os
 import tensorflow as tf
 
 # Function to download the file from Google Drive
+@st.cache_resource()
 def download_file_from_drive(url, output):
     gdown.download(url, output, quiet=False)
 
