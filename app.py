@@ -22,6 +22,13 @@ st.markdown("Predict skin tone")
 # Add a separator between the header and the main content
 st.markdown("---")
 
+import h5py
+
+try:
+    with h5py.File('model.h5', 'r') as f:
+        print("Valid HDF5 file")
+except OSError:
+    print("Invalid HDF5 file")
 
 
 # Load the trained model
