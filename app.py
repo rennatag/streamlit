@@ -113,9 +113,9 @@ if uploaded_file is not None:
 
                 # Display prediction
                 st.write(f"Predicted skin tone: {class_names[np.argmax(predictions)]}")  # Example prediction format
+                st.write("Recommended Colours")
 
                 # Display the image
-                # color_code = "#00FF00"  # Green
                 if np.argmax(predictions) == 0:
                     display_colors_list = cool_list
                 elif np.argmax(predictions) == 1:
@@ -124,7 +124,6 @@ if uploaded_file is not None:
                     display_colors_list = warm_list                    
 
                 for display_color in display_colors_list:
-                    #st.write(display_color)
                     st.image(display_color_image(display_color), caption=f"Color: {display_color}", width=50)
                 
         
