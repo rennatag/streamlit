@@ -16,7 +16,7 @@ from tensorflow.keras.preprocessing.image import img_to_array, load_img, array_t
 # image = open('banner_image.jpeg', 'rb').read()
 # st.image(image, use_column_width=True)
 
-st.title("Croissant")
+st.title("Skin Tone")
 st.markdown("Predict skin tone")
 
 # Add a separator between the header and the main content
