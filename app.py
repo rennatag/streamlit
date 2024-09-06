@@ -57,9 +57,9 @@ with st.spinner('Model loading. Please wait ...'):
     skin_tone_colors_df = pd.read_csv(file_path)
 
     # Extract each column into a separate list
-    cool_list = df['Cool'].dropna().tolist()
-    neutral_list = df['Neutral'].dropna().tolist()
-    warm_list = df['Warm'].dropna().tolist()
+    cool_list = skin_tone_colors_df['Cool'].dropna().tolist()
+    neutral_list = skin_tone_colors_df['Neutral'].dropna().tolist()
+    warm_list = skin_tone_colors_df['Warm'].dropna().tolist()
     
     # Display the extracted lists
     #cool_list, neutral_list, warm_list
