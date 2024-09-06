@@ -27,7 +27,7 @@ def predict_image(model, image):
 
 # Google Drive file link (shared link)
 file_url = 'https://drive.google.com/uc?id=16oeHRDRpTGocvN39fz36O67OGURcYS04'
-output_file = 'model.h5'
+output_file = 'model.keras'
 
 # Streamlit app starts here
 st.title("Load Keras Model from Google Drive and Make Predictions on Uploaded Image")
