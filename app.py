@@ -102,7 +102,7 @@ if uploaded_file is not None:
 
                 # Display the image
                 color_code = "#00FF00"  # Green
-                st.image(display_color_image(color_code), caption=f"Color: {color_code}", use_column_width=True)
+                st.image(display_color_image(color_code), caption=f"Color: {color_code}", width=50)
                 
         
         except Exception as e:
