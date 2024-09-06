@@ -30,7 +30,7 @@ file_url = 'https://drive.google.com/uc?id=16oeHRDRpTGocvN39fz36O67OGURcYS04'
 output_file = 'model.keras'
 
 # Streamlit app starts here
-st.title("Load Keras Model from Google Drive and Make Predictions on Uploaded Image")
+st.title("Skintone Predictor")
 
 # Button to trigger model download
 if st.button('Download and Load Model'):
