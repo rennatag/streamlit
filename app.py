@@ -34,9 +34,8 @@ def display_color_image(color_code, image_size=(200, 200)):
 
         # Create a new image with the specified size and color
         img = Image.new("RGB", image_size, rgb_color)
-
-        # Display the image
-        st.image(img, caption=f"Color: {color_code}", use_column_width=True)
+        
+        return img
 
     except ValueError:
         print(f"Invalid color code: {color_code}")
@@ -88,7 +87,7 @@ if uploaded_file is not None:
     if os.path.exists(output_file):
         try:
             # Load the model
-            model = load_model(output_file)
+            #model = load_model(output_file)
 
             # Make prediction
             with st.spinner('Making prediction...'):
@@ -101,9 +100,10 @@ if uploaded_file is not None:
                 # Display prediction
                 st.write(f"Predicted skin tone: {class_names[np.argmax(predictions)]}")  # Example prediction format
 
-                # Example usage
+                # Display the image
                 color_code = "#00FF00"  # Green
-                display_color_image(color_code)
+                st.image(display_color_image(color_code), caption=f"Color: {color_code}", use_column_width=True)
+                
         
         except Exception as e:
             st.error(f"Error making prediction: {e}")
