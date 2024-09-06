@@ -1,6 +1,6 @@
 import streamlit as st
 import gdown
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 import os
 
 # Function to download the file from Google Drive
