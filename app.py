@@ -1,6 +1,7 @@
 import streamlit as st
 import gdown
 from tensorflow.keras.models import load_model
+import pandas as pd
 import numpy as np
 from PIL import Image, ImageColor
 import os
@@ -50,6 +51,19 @@ st.title("Skintone Predictor")
 # Button to trigger model download
 #if st.button('Download and Load Model'):
 with st.spinner('Model loading. Please wait ...'):
+
+    # Load the CSV file to inspect the data
+    file_path = 'skin-tone-colors.csv'
+    skin_tone_colors_df = pd.read_csv(file_path)
+
+    # Extract each column into a separate list
+    cool_list = df['Cool'].dropna().tolist()
+    neutral_list = df['Neutral'].dropna().tolist()
+    warm_list = df['Warm'].dropna().tolist()
+    
+    # Display the extracted lists
+    #cool_list, neutral_list, warm_list
+    
     download_file_from_drive(file_url, output_file)
     st.success('Model downloaded successfully!')
 
@@ -101,8 +115,16 @@ if uploaded_file is not None:
                 st.write(f"Predicted skin tone: {class_names[np.argmax(predictions)]}")  # Example prediction format
 
                 # Display the image
-                color_code = "#00FF00"  # Green
-                st.image(display_color_image(color_code), caption=f"Color: {color_code}", width=50)
+                # color_code = "#00FF00"  # Green
+                if np.argmax(predictions) == 0:
+                    display_colors_list = cool_list
+                elif np.argmax(predictions) == 1:
+                    display_colors_list = neutral_list   
+                else: 
+                    display_colors_list = warm_list                    
+
+                for display_color in display_colors_list:
+                st.image(display_color_image(display_color), caption=f"Color: {color_code}", width=50)
                 
         
         except Exception as e:
