@@ -78,7 +78,7 @@ uploaded_file = st.file_uploader("Upload an image for prediction", type=["jpg", 
 # Once an image is uploaded
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
-    st.image(image, caption='Uploaded Image.', width=100)
+    st.image(image, caption='Uploaded Image.', width=500)
     
     # Preprocess the image for prediction
     processed_image = preprocess_image(image, target_size=(384, 384))  # Adjust target size to your model input
